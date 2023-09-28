@@ -16,6 +16,10 @@ apollo {
         sourceFolder.set("v0")
         packageName.set("com.dinesh.android.v0")
     }
+    service("v1") {
+        sourceFolder.set("v1")
+        packageName.set("com.dinesh.android.v1")
+    }
 }
 
 android {

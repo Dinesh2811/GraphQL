@@ -22,8 +22,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        startActivity(Intent(this, com.dinesh.android.remote.country.MainActivity::class.java))
+//        startActivity(Intent(this, com.dinesh.android.remote.country.MainActivity::class.java))
 //        startActivity(Intent(this, com.dinesh.android.local.v0.MainActivity::class.java))
+        startActivity(Intent(this, com.dinesh.android.local.v1.MainActivity::class.java))
+
 
     }
 }
