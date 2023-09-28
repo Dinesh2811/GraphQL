@@ -36,14 +36,6 @@ query FetchPerson($name: String!) {
     }
 }
 
-#query SearchPersons($name: String!, $age: Int!) {
-#    searchPersons(name: $name, age: $age){
-#        name
-#        age
-#    }
-#}
-
-
 query SearchPersonsByNameAge($name: String!, $age: Int!) {
     searchPersons(name: $name, age: $age){
         name
@@ -62,5 +54,17 @@ query SearchPersonsByAge($age: Int!) {
     searchPersons(age: $age){
         name
         age
+    }
+}
+
+mutation AddPerson($name: String!, $age: Int!, $street: String!, $city: String!, $country: String!) {
+    addPerson(name: $name, age: $age, street: $street, city: $city, country: $country) {
+        name
+        age
+        address {
+            street
+            city
+            country
+        }
     }
 }

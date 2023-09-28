@@ -43,7 +43,6 @@ paging-runtime-ktx = "3.2.1"
 play-services-location = "21.0.1"
 shimmer = "0.5.0"
 
-
 [libraries]
 #   Apollo Graph QL
 apollo-runtime = { module = "com.apollographql.apollo3:apollo-runtime", version.ref = "apollo" }

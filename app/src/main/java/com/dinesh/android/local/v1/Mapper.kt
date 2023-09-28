@@ -9,32 +9,32 @@ import com.dinesh.android.v1.SearchPersonsByAgeQuery
 import com.dinesh.android.v1.SearchPersonsByNameAgeQuery
 import com.dinesh.android.v1.SearchPersonsByNameQuery
 
-fun FetchDataQuery.Data.toFetchData() : Data {
+fun FetchDataQuery.Data.toFetchData(): Data {
     return Data(
         hello = hello,
         numbers = numbers?.map { it }
     )
 }
 
-fun FetchGreetingQuery.Data.toFetchGreeting() : Greeting {
+fun FetchGreetingQuery.Data.toFetchGreeting(): Greeting {
     return Greeting(
         hello = hello
     )
 }
 
-fun FetchNumbersQuery.Data.toFetchNumbers() : Numbers {
+fun FetchNumbersQuery.Data.toFetchNumbers(): Numbers {
     return Numbers(
         numbers = numbers?.map { it }
     )
 }
 
-fun FetchPersonsQuery.Data.toFetchPersons() : Persons {
+fun FetchPersonsQuery.Data.toFetchPersons(): Persons {
     return Persons(
         persons = persons?.map { Person(it?.name, it?.age, Address(it?.address?.street, it?.address?.city, it?.address?.country)) }
     )
 }
 
-fun FetchPersonQuery.Person.toFetchPerson() : Person {
+fun FetchPersonQuery.Person.toFetchPerson(): Person {
     return Person(
         name = this.name,
         age = this.age,
@@ -43,7 +43,7 @@ fun FetchPersonQuery.Person.toFetchPerson() : Person {
     )
 }
 
-fun FetchPersonQuery.Person.toFetchAddress() : Address {
+fun FetchPersonQuery.Person.toFetchAddress(): Address {
     return Address(
         street = this.address?.street,
         city = this.address?.city,
@@ -51,20 +51,20 @@ fun FetchPersonQuery.Person.toFetchAddress() : Address {
     )
 }
 
-fun SearchPersonsByNameAgeQuery.Data.toFetchPersonsByNameAge() : Persons {
+fun SearchPersonsByNameAgeQuery.Data.toFetchPersonsByNameAge(): Persons {
     return Persons(
         persons = this.searchPersons?.map { Person(it?.name, it?.age, Address(null, null, null)) }
 //        persons = this.searchPersons?.map { Person(it?.name, it?.age, Address(it?.address?.street, it?.address?.city, it?.address?.country)) }
     )
 }
 
-fun SearchPersonsByNameQuery.Data.toFetchPersonsByName() : Persons {
+fun SearchPersonsByNameQuery.Data.toFetchPersonsByName(): Persons {
     return Persons(
         persons = this.searchPersons?.map { Person(it?.name, it?.age, Address(null, null, null)) }
     )
 }
 
-fun SearchPersonsByAgeQuery.Data.toFetchPersonsByAge() : Persons {
+fun SearchPersonsByAgeQuery.Data.toFetchPersonsByAge(): Persons {
     return Persons(
         persons = this.searchPersons?.map { Person(it?.name, it?.age, Address(null, null, null)) }
     )

@@ -3,6 +3,7 @@ package com.dinesh.android.local.v1
 import android.util.Log
 import com.apollographql.apollo3.ApolloClient
 import com.apollographql.apollo3.network.okHttpClient
+import com.dinesh.android.v1.AddPersonMutation
 import com.dinesh.android.v1.FetchDataQuery
 import com.dinesh.android.v1.FetchGreetingQuery
 import com.dinesh.android.v1.FetchNumbersQuery
@@ -11,6 +12,8 @@ import com.dinesh.android.v1.FetchPersonsQuery
 import com.dinesh.android.v1.SearchPersonsByAgeQuery
 import com.dinesh.android.v1.SearchPersonsByNameAgeQuery
 import com.dinesh.android.v1.SearchPersonsByNameQuery
+import com.dinesh.android.v1.adapter.AddPersonMutation_ResponseAdapter
+import com.dinesh.android.v1.selections.AddPersonMutationSelections
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 
@@ -120,4 +123,42 @@ class ApiClient {
         }
     }
 
+//    suspend fun postData(person: Person) {
+//        val addPersonMutation = AddPersonMutation.builder()
+//            .name(person.name)
+//            .age(person.age)
+//            .street(person.address?.street)
+//            .city(person.address?.city)
+//            .country(person.address?.country)
+//            .build()
+//
+//        val addPerson = AddPersonMutation()
+//
+//        try {
+//            val response = apollo.mutation(addPersonMutation).await()
+//            val addedPerson = response.data?.addPerson
+//            Log.d(TAG, "postData: ${addedPerson.toString()}")
+//            Log.d(TAG, addedPerson.toString())
+//        } catch (e: Exception) {
+//            Log.e(TAG, "postData: ${e.message}")
+//        }
+//    }
+
+    suspend fun postData(person: Person) {
+        val addPersonMutation = AddPersonMutation(
+            name = person.name!!,
+            age = person.age!!,
+            street = person.address?.street!!,
+            city = person.address?.city!!,
+            country = person.address?.country!!
+        )
+
+        try {
+            val response = apollo.mutation(addPersonMutation)
+            val addedPerson = response.execute().data?.addPerson
+            Log.e(TAG, "Added person: $addedPerson")
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to add person ${e.message}")
+        }
+    }
 }
