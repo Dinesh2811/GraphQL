@@ -8,8 +8,13 @@ plugins {
 }
 
 apollo {
-    service("service") {
-        packageName.set("com.dinesh")
+    service("country_schema") {
+        sourceFolder.set("country_schema")
+        packageName.set("com.dinesh.android.country_schema")
+    }
+    service("v0") {
+        sourceFolder.set("v0")
+        packageName.set("com.dinesh.android.v0")
     }
 }
 

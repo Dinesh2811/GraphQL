@@ -1,10 +1,10 @@
-package com.dinesh.android.v0.data
+package com.dinesh.android.remote.country.data
 
 import com.apollographql.apollo3.ApolloClient
-import com.dinesh.GetCountriesQuery
-import com.dinesh.GetCountryQuery
-import com.dinesh.android.v0.model.DetailedCountry
-import com.dinesh.android.v0.model.SimpleCountry
+import com.dinesh.android.country_schema.GetCountriesQuery
+import com.dinesh.android.country_schema.GetCountryQuery
+import com.dinesh.android.remote.country.model.DetailedCountry
+import com.dinesh.android.remote.country.model.SimpleCountry
 
 class ApolloCountryClient {
 

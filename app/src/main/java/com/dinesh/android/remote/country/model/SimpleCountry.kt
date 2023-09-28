@@ -1,4 +1,4 @@
-package com.dinesh.android.v0.model
+package com.dinesh.android.remote.country.model
 
 data class SimpleCountry(
     val code: String,
