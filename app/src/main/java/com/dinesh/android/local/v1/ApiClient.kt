@@ -4,6 +4,7 @@ import android.util.Log
 import com.apollographql.apollo3.ApolloClient
 import com.apollographql.apollo3.network.okHttpClient
 import com.dinesh.android.v1.AddPersonMutation
+import com.dinesh.android.v1.DeletePersonsByNameMutation
 import com.dinesh.android.v1.FetchDataQuery
 import com.dinesh.android.v1.FetchGreetingQuery
 import com.dinesh.android.v1.FetchNumbersQuery
@@ -136,6 +137,16 @@ class ApiClient {
             Log.e(TAG, "Added person: $addedPerson")
         } catch (e: Exception) {
             Log.e(TAG, "Failed to add person ${e.message}")
+        }
+    }
+
+    suspend fun deletePersonsByName(name: List<String>): Persons? {
+        return try {
+            val response = apollo.mutation(DeletePersonsByNameMutation(name)).execute()
+            response.data?.toDeletePersonsByName()
+        } catch (e: Exception) {
+            Log.e(TAG, "getPerson: ${e.message}")
+            null
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.dinesh.android.local.v1
 
+import com.dinesh.android.v1.DeletePersonsByNameMutation
 import com.dinesh.android.v1.FetchDataQuery
 import com.dinesh.android.v1.FetchGreetingQuery
 import com.dinesh.android.v1.FetchNumbersQuery
@@ -67,5 +68,11 @@ fun SearchPersonsByNameQuery.Data.toFetchPersonsByName(): Persons {
 fun SearchPersonsByAgeQuery.Data.toFetchPersonsByAge(): Persons {
     return Persons(
         persons = this.searchPersons?.map { Person(it?.name, it?.age, Address(null, null, null)) }
+    )
+}
+
+fun DeletePersonsByNameMutation.Data.toDeletePersonsByName() : Persons {
+    return Persons(
+        persons = this.deletePerson?.map { Person(it?.name, it?.age, Address(null, null, null)) }
     )
 }

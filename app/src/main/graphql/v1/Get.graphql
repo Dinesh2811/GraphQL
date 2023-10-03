@@ -68,3 +68,10 @@ mutation AddPerson($name: String!, $age: Int!, $street: String!, $city: String!,
         }
     }
 }
+
+mutation DeletePersonsByName($name: [String!]!) {
+    deletePerson(names: $name) {
+        name
+        age
+    }
+}

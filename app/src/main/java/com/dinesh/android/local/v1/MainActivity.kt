@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
 //            Log.i(TAG, "getPersonsByNameAge: ${getPersonsByNameAge("John", 30)}")
 //            Log.i(TAG, "getPersonsByName: ${getPersonsByName("John")}")
 //            Log.i(TAG, "getPersonsByAge: ${getPersonsByAge(30)}")
+//            Log.i(TAG, "deletePersonsByName: ${deletePersonsByName(listOf("John"))}")
         }
     }
 

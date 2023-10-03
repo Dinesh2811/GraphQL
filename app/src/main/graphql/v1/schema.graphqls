@@ -22,6 +22,8 @@ scalar Int
 
 type Mutation {
   addPerson(name: String!, age: Int!, street: String!, city: String!, country: String!): Person
+
+  deletePerson(names: [String!]!): [Person]
 }
 
 type Person {
